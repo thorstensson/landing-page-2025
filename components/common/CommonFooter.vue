@@ -1,20 +1,22 @@
 <template>
   <div class="abs-wrapper">
-  <div class="footer-wrapper">
-      <a target='_blank' href='https://github.com/thorstensson'>GITHUB</a>
-      <a target='_blank' href='https://thomasthorstensson.photography'>/ WP</a>
-    <MediaAudioPlayer />
+    <div class="footer-wrapper">
+      <div>
+        <a target='_blank' href='https://github.com/thorstensson'>GITHUB</a>
+        <a target='_blank' href='https://thomasthorstensson.photography'>/ WP</a>
+      </div>
+      <MediaAudioPlayer />
+    </div>
   </div>
-</div>
 </template>
 
 <style lang="scss" scoped>
-
 .abs-wrapper {
   position: absolute;
-  width:100%;
-  bottom:0;
+  width: 100%;
+  bottom: 0;
 }
+
 .footer-wrapper {
   display: flex;
   align-items: center;
@@ -25,10 +27,10 @@
   -moz-user-select: none;
   user-select: none;
   font-display: fallback;
-  font-family: "Space Mono", "Space Mono Fallback: Arial", sans-serif;
+  font-family: "Space Grotesk", "Space Mono Fallback: Arial", sans-serif;
   color: #FAF8FF;
   font-display: fallback;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 a {

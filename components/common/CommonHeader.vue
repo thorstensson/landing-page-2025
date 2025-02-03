@@ -29,9 +29,9 @@
   padding: 0 $page-hpad 0 $page-hpad;
   user-select: none;
   font-display: fallback;
-  font-family: $sans-ui;
+  font-family: $sans-text;
   color: $secondary;
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .letter span::after {
