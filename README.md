@@ -77,6 +77,15 @@ yarn preview
 # bun
 bun run preview
 ```
+
+## Fixed
+
+- [X] Changed CSS Scroll for the great GSAP scroll solution on GSAP docs. CSS does not work well for infinite text scroll.
+
+- [X] Wrapped headers and footer in absolute to place on top of canvas, which will be the case for portfolio too.
+
+- [X] Changed the way containers wrap content.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

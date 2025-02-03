@@ -4,17 +4,23 @@
 
 <template>
   <!--No mailto on purpose, chrome ios makes it clickable, rest can read (weary of robots)-->
+  <div class="abs-wrapper">
   <div class="header-wrapper">
     <div class="letter"><span>T</span></div>
     <div class="msg">NEW PORTFOLIO MARCH 1</div>
     <div><a>HOLA@THOMASJT.COM</a></div>
   </div>
+</div>
 </template>
 
 <style lang="scss" scoped>
 // Tidy up SCSS at some point after portfolio done; too many repeats, some things can be moved also into mixins, parents,etc
-// Even if only a humble landing page, keep it tidy son
+// Even if only a humble landing page, keepP it tidy son
 
+.abs-wrapper {
+  position: absolute;
+  width:100%;
+}
 .header-wrapper {
   display: flex;
   align-items: center;

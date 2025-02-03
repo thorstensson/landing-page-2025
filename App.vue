@@ -33,10 +33,13 @@ body {
 }
 
 body {
-    position: relative;
     overflow-x: hidden;
     /*would like vh but eh safaris bottom bar grr, thanks Apple*/
-    min-height: 100%
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin:0;
+    padding:0;
 }
 
 .hide {
@@ -48,11 +51,5 @@ body {
 .on-ready {
     opacity: 1;
     filter: blur(0px)
-}
-
-.-bottom-screen-element {
-    position: fixed;
-    bottom: 0;
-    bottom: env(safe-area-inset-bottom);
 }
 </style>

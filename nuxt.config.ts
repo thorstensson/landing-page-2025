@@ -28,6 +28,14 @@ export default defineNuxtConfig({
 
   modules: ['@nuxt/fonts', '@vueuse/nuxt', 'nuxt-svgo', '@nuxtjs/seo', 'nuxt-og-image', '@nuxtjs/robots', 'nuxt-seo-utils', 'nuxt-site-config',],
 
+  plugins: [
+    { src: '@/plugins/gsap.client.ts', mode: 'client' }
+  ],
+
+  build: {
+    transpile: ['gsap'],
+  },
+
   //@ts-ignore
   security: {
     headers: {
@@ -59,6 +67,6 @@ export default defineNuxtConfig({
     defaultImport: 'component',
   },
 
-  devtools: { enabled: false},
+  devtools: { enabled: false },
 
 })

@@ -12,15 +12,7 @@
 
 <style scoped>
 .landing-wrapper {
-  min-height: calc(100vh - 130px);
+  height: 100vh;
 }
 
-.landing-wrapper,
-.landing-wrapper>*:first-child {
-  display:flex;
-  width: 100%;
-  min-height: calc(100vh - 140px);
-  justify-content: center;
-  align-content: center;
-}
 </style>

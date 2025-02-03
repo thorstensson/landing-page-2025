@@ -1,14 +1,20 @@
 <template>
+  <div class="abs-wrapper">
   <div class="footer-wrapper">
-    <div>
       <a target='_blank' href='https://github.com/thorstensson'>GITHUB</a>
       <a target='_blank' href='https://thomasthorstensson.photography'>/ WP</a>
-    </div>
     <MediaAudioPlayer />
   </div>
+</div>
 </template>
 
 <style lang="scss" scoped>
+
+.abs-wrapper {
+  position: absolute;
+  width:100%;
+  bottom:0;
+}
 .footer-wrapper {
   display: flex;
   align-items: center;

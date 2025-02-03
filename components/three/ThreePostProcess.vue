@@ -80,7 +80,7 @@ const onWindowResize = () => {
     renderer.setSize(objWidth, objHeight)
     composer.setSize(objWidth, objHeight)
 
-    objHeight = parentEl.value.clientHeight - offset.value
+    objHeight = parentEl.value.clientHeight
     objWidth = parentEl.value.clientWidth
 }
 
@@ -98,8 +98,9 @@ const animate = () => {
 
 <style scoped lang="scss">
 .canvas {
-    height:100%;
+    /*it seems three calculates a few pixels off on some resizes so we force height gulp*/
+    height: 100% !important;
+    border: none;
     background-color: #222;
-    border: 1px solid #454545;
 }
 </style>
