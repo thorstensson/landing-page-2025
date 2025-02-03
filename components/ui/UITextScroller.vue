@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useNuxtApp } from '#app';
-import { onMounted, ref } from 'vue';
 import { useParentElement } from '@vueuse/core'
 
 defineProps<{
@@ -20,7 +18,7 @@ onNuxtReady((app) => {
      * Tip: onNuxtReady makes sure GSAP is there. 
      * This is where I draw a penguin for win: thanks, GSAP team.
      * @see https://$gsap.com/community/forums/topic/42921-horizontal-infinite-text-loop-without-empty-spaces/
-     * @param items 
+     * @param items b
      * @param config 
      */
 
@@ -150,16 +148,6 @@ onNuxtReady((app) => {
         font-family: $sans-text;
         font-size: clamp-calc(480px, 1920px, 50px, 120px);
         text-transform: uppercase;
-    }
-}
-
-@keyframes marquee {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    100% {
-        transform: translate(-100%, 0);
     }
 }
 </style>
