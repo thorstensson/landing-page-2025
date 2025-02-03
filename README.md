@@ -80,11 +80,11 @@ bun run preview
 
 ## Fixed
 
-- [X] Changed CSS Scroll for the great GSAP scroll solution on GSAP docs. CSS does not work well for infinite text scroll.
+- [X] Changed the text scroller into a GSAP text scroller, see this [GSAP community post](https://gsap.com/community/forums/topic/42921-horizontal-infinite-text-loop-without-empty-spaces/)
 
-- [X] Wrapped headers and footer in absolute to place on top of canvas, which will be the case for portfolio too.
+- [X] Updated CSS for most wrappers.
 
-- [X] Changed the way containers wrap content.
+- [X] Made the ThreeJS scene full screen and fixed responsive resize issue.
 
 ## License
 
