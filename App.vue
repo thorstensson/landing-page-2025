@@ -25,7 +25,6 @@ onMounted(() => {
 html,
 body {
     background-color: #0F0F0f;
-    margin: 0;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
@@ -34,7 +33,6 @@ body {
 
 body {
     overflow-x: hidden;
-    /*would like vh but eh safaris bottom bar grr, thanks Apple*/
     display: flex;
     flex-direction: column;
     min-height: 100vh;

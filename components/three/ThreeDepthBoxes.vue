@@ -14,7 +14,7 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
 const mycanvas = useTemplateRef('canvas')
 const parentEl = useParentElement()
 
-let camera, renderer, composer, object
+let camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer, composer: EffectComposer, object: THREE.Object3D
 
 const offset = computed(() => {
     let offsetval
@@ -23,10 +23,9 @@ const offset = computed(() => {
 })
 
 onMounted(() => {
-    let objHeight = parentEl.value.clientHeight
-    let objWidth = parentEl.value.clientWidth
-    renderer = new THREE.WebGLRenderer({ alpha: true, canvas: mycanvas.value })
-    renderer.setClearColor(0x0F0F0f, 0)
+    let objHeight = parentEl.value!.clientHeight
+    let objWidth = parentEl.value!.clientWidth
+    renderer = new THREE.WebGLRenderer({ alpha: true, canvas: mycanvas.value as HTMLCanvasElement })
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(objWidth, objHeight)
     renderer.setAnimationLoop(animate)
@@ -73,15 +72,15 @@ onMounted(() => {
 })
 
 const onWindowResize = () => {
-    let objHeight = parentEl.value.clientHeight
-    let objWidth = parentEl.value.clientWidth
+    let objHeight = parentEl.value!.clientHeight
+    let objWidth = parentEl.value!.clientWidth
     camera.aspect = objWidth / objHeight
     camera.updateProjectionMatrix()
     renderer.setSize(objWidth, objHeight)
     composer.setSize(objWidth, objHeight)
 
-    objHeight = parentEl.value.clientHeight
-    objWidth = parentEl.value.clientWidth
+    objHeight = parentEl.value!.clientHeight
+    objWidth = parentEl.value!.clientWidth
 }
 
 const animate = () => {
@@ -101,6 +100,6 @@ const animate = () => {
     /*it seems three calculates a few pixels off on some resizes so we force height gulp*/
     height: 100% !important;
     border: none;
-    background-color: #222;
+
 }
 </style>

@@ -7,12 +7,19 @@ definePageMeta({
 const scrollConfig = reactive({
     text: "                                  I care for creating experiences where code, visuals, SEO, & typography meet people. Barcelona based & Swede. Seeking a new frontend calling with Vue / Nuxt + _____. Let's talk …",
 })
+
+const compName = shallowRef(resolveComponent('ThreeBloomCircles'))
+
+setTimeout(() => {
+    compName.value = (resolveComponent('ThreeDepthBoxes'))
+}, 180000)
+
 </script>
 
 <template>
     <div class="page-wrapper">
-        <ThreePostProcess />
-        <UITextScroller :text="scrollConfig.text"></UiTextScroller>
+        <component :is="compName"></component>
+        <UITextScroller :text="scrollConfig.text" />
     </div>
 </template>
 

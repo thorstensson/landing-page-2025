@@ -18,7 +18,6 @@ import { useStoreRef } from '@/composable/useStoreRef'
 
 const spectrum = useTemplateRef('spectrum')
 const audioEl = useTemplateRef('audio-element')
-
 const trackTime = ref<string>("00:00")
 const trackDuration = ref<string>("00.00")
 const trackIndex = ref<number>(0)

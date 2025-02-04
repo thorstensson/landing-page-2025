@@ -27,7 +27,7 @@
   -moz-user-select: none;
   user-select: none;
   font-display: fallback;
-  font-family: "Space Grotesk", "Space Mono Fallback: Arial", sans-serif;
+  font-family: $sans-ui;
   color: #FAF8FF;
   font-display: fallback;
   font-size: 13px;

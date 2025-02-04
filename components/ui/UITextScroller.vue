@@ -9,13 +9,14 @@ defineProps<{
 const { $gsap } = useNuxtApp();
 const parentEl = useParentElement()
 
+
+//TODO: Ok so TYpeScript / ESLint is finding some 'any' types, fix when have time
 onNuxtReady((app) => {
 
     if (!process.client) return
 
     /**
-     * Code below comes straight from $gsap docs, because CSS scrollers don't really work (sorry Next.js) 
-     * Tip: onNuxtReady makes sure GSAP is there. 
+     * Code below comes straight from $gsap docs, because they solved horizontal text scrolling, need more than CSS here.
      * This is where I draw a penguin for win: thanks, GSAP team.
      * @see https://$gsap.com/community/forums/topic/42921-horizontal-infinite-text-loop-without-empty-spaces/
      * @param items b
@@ -23,7 +24,7 @@ onNuxtReady((app) => {
      */
 
     /*
-    This helper function makes a group of elements animate along the x-axis in a seamless, responsive loop.
+    This GSAP helper function makes a group of elements animate along the x-axis in a seamless, responsive loop.
     
     Features:
      - Uses xPercent so that even if the widths change (like if the window gets resized), it should still work in most cases.
