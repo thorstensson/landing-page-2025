@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { useParentElement } from '@vueuse/core'
 import * as THREE from 'three'
 

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-
 /**
  * TODO: If honeypot does not work against bots then configure for captcha.
  * Web3Forms

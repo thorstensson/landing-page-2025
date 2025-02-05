@@ -1,0 +1,34 @@
+// Creates a nice rollup effect on hover states, maybe should create an _effects.scss file instead of here...
+.hover {
+    overflow: hidden;
+    position: relative;
+}
+
+.hover span {
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+.hover-fx {
+    white-space: nowrap;
+    transition: transform 0.4s cubic-bezier(0.4, 0.8, 0.74, 1);
+}
+
+.hover .hover-fx:last-child {
+    position: absolute;
+}
+
+.hover-fx:last-child {
+    transform: translateY(100%);
+}
+
+.hover:hover .hover-fx:first-child {
+    transform: translateY(-100%);
+}
+
+.hover:hover .hover-fx:last-child {
+    transform: translate(0);
+    clear: both;
+    float: right;
+}

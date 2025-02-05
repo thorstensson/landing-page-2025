@@ -1,9 +1,10 @@
 <template>
   <div class="abs-wrapper">
     <div class="footer-wrapper">
-      <div>
-        <a target='_blank' href='https://github.com/thorstensson'>GITHUB</a>
-        <a target='_blank' href='https://thomasthorstensson.photography'>/ WP</a>
+      <div class="hover">
+        <span class="hover-fx"> <a target='_blank' href='https://github.com/thorstensson'>GitHub</a></span>
+        <span aria-hidden="true" class="hover-fx"> <a target='_blank'
+            href='https://github.com/thorstensson'>GitHub</a></span>
       </div>
       <MediaAudioPlayer />
     </div>
@@ -30,14 +31,6 @@
   font-family: $sans-ui;
   color: #FAF8FF;
   font-display: fallback;
-  font-size: 13px;
-}
-
-a {
-  transition: color 0.2s ease-in-out;
-}
-
-a:hover {
-  color: $accent;
+  font-size: 15px;
 }
 </style>

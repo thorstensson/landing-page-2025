@@ -1,26 +1,31 @@
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <!--No mailto on purpose, chrome ios makes it clickable, rest can read (weary of robots)-->
   <div class="abs-wrapper">
-  <div class="header-wrapper">
-    <div class="letter"><span>T</span></div>
-    <div class="msg">NEW PORTFOLIO MARCH 1</div>
-    <div><a>HOLA@THOMASJT.COM</a></div>
+    <div class="header-wrapper">
+      <div class="letter"><span>TJT</span></div>
+      <div class="msg">New portfolio March</div>
+      <div class="hover">
+        <span class="hover-fx cursor"><a>hello@thomasjt.com</a></span>
+        <span aria-hidden="true" class="hover-fx"><a>hello@thomasjt.com</a></span>
+      </div>
+    </div>
   </div>
-</div>
 </template>
 
 <style lang="scss" scoped>
 // Tidy up SCSS at some point after portfolio done; too many repeats, some things can be moved also into mixins, parents,etc
 // Even if only a humble landing page, keepP it tidy son
 
+.a {
+  text-decoration: none;
+}
+
 .abs-wrapper {
   position: absolute;
-  width:100%;
+  width: 100%;
 }
+
 .header-wrapper {
   display: flex;
   align-items: center;
@@ -31,7 +36,15 @@
   font-display: fallback;
   font-family: $sans-ui;
   color: $secondary;
-  font-size: 13px;
+  font-size: 15px;
+}
+
+.cursor {
+  cursor:pointer;
+}
+
+.letter {
+  font-weight: 600;
 }
 
 .letter span::after {
@@ -44,29 +57,15 @@
   margin: 0px 0 -1px 2px;
 }
 
-a:link,
-a:visited,
-a:active,
-a:focus,
-a:visited {
-  text-decoration: none !important;
-  border-bottom: none;
-}
-
-a {
-  transition: color 0.2s ease-in-out;
-}
-
-a:hover {
-  color: $accent;
+span {
+  display: inline-block;
 }
 
 .msg {
-  display:none;
+  display: none;
+
   @include this-and-above('lg') {
-        display:block;
-    }
+    display: block;
+  }
 }
-
-
 </style>

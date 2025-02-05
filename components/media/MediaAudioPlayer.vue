@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 /**
  * An even more slimmed down version of the player.
  * TODO: when portfolio is done, revisit this for improvements

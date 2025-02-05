@@ -6,12 +6,12 @@ defineProps<{
     speed?: string
 }>()
 
-const { $gsap } = useNuxtApp();
+const { $gsap } = useNuxtApp()
 const parentEl = useParentElement()
 
 
 //TODO: Ok so TYpeScript / ESLint is finding some 'any' types, fix when have time
-onNuxtReady((app) => {
+onNuxtReady(() => {
 
     if (!process.client) return
 
@@ -37,7 +37,7 @@ onNuxtReady((app) => {
        - current() - returns the current index (if an animation is in-progress, it reflects the final index)
        - times - an Array of the times on the timeline where each element hits the "starting" spot. There's also a label added accordingly, so "label1" is when the 2nd element reaches the start.
      */
-    const factor = (parentEl.value.clientWidth < 992) ? 3 : 6
+    const factor = (parentEl.value!.clientWidth < 992) ? 3 : 6
     const scrollingText = $gsap.utils.toArray('.rail h4')
 
     const tl = horizontalLoop(scrollingText, {
@@ -111,7 +111,6 @@ onNuxtReady((app) => {
     }
 
 })
-
 </script>
 
 <template>
