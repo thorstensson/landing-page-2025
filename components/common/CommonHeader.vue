@@ -3,7 +3,7 @@
 <template>
   <div class="abs-wrapper">
     <div class="header-wrapper">
-      <div class="letter"><span>Thomas</span></div>
+      <div class="letter"><span>Thomas Thorstensson</span></div>
       <div class="msg">New portfolio coming soon</div>
       <div class="hover">
         <span class="hover-fx cursor"><a>hello@thomasjt.com</a></span>

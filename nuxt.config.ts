@@ -9,13 +9,13 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://thomasjt.com',
-    name: 'Thomas Thorstensson',
+    name: 'Thomas JT - Multidisciplinary Developer',
     // ...etc
   },
 
   seo: {
     meta: {
-      description: 'Thomas JT is a creative developer focusing on Vue, Nuxt and all things R&D. He lives in Barcelona.',
+      description: 'Thomas Thorstensson is a multidisciplinary developer who loves crafting visual experiences..',
     }
   },
 
