@@ -53,7 +53,7 @@ const startAnimRequest = () => {
             analyser.value?.getByteFrequencyData(dataArray)
             for (let i = 0; i < bufferLength; i++) {
                 const barHeight = dataArray[i]
-                ctx.fillStyle = `rgb(${barHeight + 100} 200 150)`
+                ctx.fillStyle = `rgb(${barHeight + 100} 0 150)`
                 ctx.fillRect(x, canvas.value.height - barHeight, barWidth, barHeight)
                 x += barWidth + 1
             }

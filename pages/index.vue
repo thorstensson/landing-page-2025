@@ -5,18 +5,19 @@ definePageMeta({
 });
 
 const scrollConfig = reactive({
-    text: "                                  I care for creating experiences where code, visuals, SEO, & typography meet people. Barcelona / London / Malmoe based & Swede. Seeking a new frontend calling with Vue / Nuxt + _____. Let's talk …",
+    text: "                                                                        Swedish Developer | Designer. Ok, I don't have one niche. I code in Vue, design in Figma. Based: Barcelona / London. Open to a new role!",
 })
 
 // leaving this in here as I was thinking of switching components on a setTimeOut
-const compName = shallowRef(resolveComponent('ThreeBloomCircles'))
+const compName = shallowRef(resolveComponent('ThreeMetal'))
 
 </script>
 
 <template>
     <div class="page-wrapper">
-        <component :is="compName"></component>
+        <component :is="compName" />
         <UITextScroller :text="scrollConfig.text" />
+        <FxNoise />
     </div>
 </template>
 

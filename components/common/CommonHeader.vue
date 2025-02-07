@@ -3,8 +3,8 @@
 <template>
   <div class="abs-wrapper">
     <div class="header-wrapper">
-      <div class="letter"><span>TJT</span></div>
-      <div class="msg">New portfolio March</div>
+      <div class="letter"><span>Thomas</span></div>
+      <div class="msg">New portfolio coming soon</div>
       <div class="hover">
         <span class="hover-fx cursor"><a>hello@thomasjt.com</a></span>
         <span aria-hidden="true" class="hover-fx"><a>hello@thomasjt.com</a></span>
@@ -14,8 +14,7 @@
 </template>
 
 <style lang="scss" scoped>
-// Tidy up SCSS at some point after portfolio done; too many repeats, some things can be moved also into mixins, parents,etc
-// Even if only a humble landing page, keepP it tidy son
+// TODO: Tidy up this landing page CSS, but really neeed to deepdive now into my next portfolio
 
 .a {
   text-decoration: none;
@@ -41,10 +40,6 @@
 
 .cursor {
   cursor:pointer;
-}
-
-.letter {
-  font-weight: 600;
 }
 
 .letter span::after {

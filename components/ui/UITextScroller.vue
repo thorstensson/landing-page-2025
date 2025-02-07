@@ -131,6 +131,7 @@ onNuxtReady(() => {
     height: fit-content;
     align-items: center;
     bottom: 70px;
+    padding-bottom:20px;
 }
 
 .rail {
@@ -148,7 +149,8 @@ onNuxtReady(() => {
         font-family: $sans-text;
         font-weight: 600;
         font-size: clamp-calc(480px, 1920px, 70px, 140px);
-        text-transform: uppercase;
+        
+        will-change: transform;
     }
 }
 

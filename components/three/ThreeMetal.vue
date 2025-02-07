@@ -13,58 +13,52 @@ import { OutputPass } from 'three/addons/postprocessing/OutputPass.js'
 const mycanvas = useTemplateRef('canvas')
 const parentEl = useParentElement()
 
-let camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer, composer: EffectComposer, object: THREE.Object3D
+const parameters = {
+    radius: 0.6,
+    tube: 0.2,
+    tubularSegments: 150,
+    radialSegments: 20,
+    p: 2,
+    q: 3,
+    thickness: 0.5,
+};
 
-const offset = computed(() => {
-    let offsetval
-    (window.innerWidth < 992) ? offsetval = 60 : offsetval = 140
-    return offsetval
-})
+let camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer, composer: EffectComposer, object: THREE.Object3D, scene
 
 onMounted(() => {
     let objHeight = parentEl.value!.clientHeight
     let objWidth = parentEl.value!.clientWidth
-    renderer = new THREE.WebGLRenderer({ alpha: true, canvas: mycanvas.value as HTMLCanvasElement })
+
+    renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, canvas: mycanvas.value as HTMLCanvasElement })
+
+    renderer.xr.enabled = true;
+
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 10;
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(objWidth, objHeight)
     renderer.setAnimationLoop(animate)
 
     camera = new THREE.PerspectiveCamera(70, objWidth / objHeight, 1, 1000)
-    camera.position.z = 400
+    camera.position.set(0, 1.3, .7);
 
-    const scene = new THREE.Scene()
+    scene = new THREE.Scene()
 
-    object = new THREE.Object3D()
-    scene.add(object)
+    const torusGeometry = new THREE.TorusKnotGeometry(...Object.values(parameters));
+    const torusMaterial = new THREE.MeshPhysicalMaterial({
+        color:0x000000, emissive:0x000000, roughness:10, metalness:30, flatShading:true, reflectivity:.9, iridescence:2
+    });
 
-    const geometry = new THREE.SphereGeometry(1, 4, 4)
-    const material = new THREE.MeshDepthMaterial()
+    const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+    torus.name = 'torus';
+    torus.position.y = 1.5;
+    torus.position.z = - 2;
+    scene.add(torus);
 
-    for (let i = 0; i < 100; i++) {
-        const mesh = new THREE.Mesh(geometry, material)
-        mesh.position.set(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize()
-        mesh.position.multiplyScalar(Math.random() * 400)
-        mesh.rotation.set(Math.random() * 2, Math.random() * 2, Math.random() * 2)
-        mesh.scale.x = mesh.scale.y = mesh.scale.z = Math.random() * 50
-        object.add(mesh)
-    }
-
-    scene.add(new THREE.AmbientLight(0x404040))
-
-    const light = new THREE.DirectionalLight(0xffffff, 3)
+    const light = new THREE.DirectionalLight(0x222222, 3)
     light.position.set(1, 1, 1)
     scene.add(light)
 
-    //postprocess
-    composer = new EffectComposer(renderer)
-    composer.addPass(new RenderPass(scene, camera))
-
-    const effect2 = new ShaderPass(RGBShiftShader)
-    effect2.uniforms['amount'].value = 0.0015
-    composer.addPass(effect2)
-
-    const effect3 = new OutputPass()
-    composer.addPass(effect3)
 
     window.addEventListener('resize', onWindowResize)
     window.addEventListener("deviceorientation", onWindowResize)
@@ -76,18 +70,15 @@ const onWindowResize = () => {
     camera.aspect = objWidth / objHeight
     camera.updateProjectionMatrix()
     renderer.setSize(objWidth, objHeight)
-    composer.setSize(objWidth, objHeight)
-
-    objHeight = parentEl.value!.clientHeight
-    objWidth = parentEl.value!.clientWidth
 }
 
 const animate = () => {
-    object.rotation.x += 0.005
-    object.rotation.y += 0.01
-    composer.render()
+    const time = performance.now() * 0.0002;
+    const torus = scene.getObjectByName('torus');
+    torus.rotation.x = time * 0.4;
+    torus.rotation.y = time;
+    renderer.render(scene, camera);
 }
-
 </script>
 
 <template>
