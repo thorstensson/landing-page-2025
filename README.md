@@ -86,6 +86,9 @@ bun run preview
 
 - [X] Made the ThreeJS scene full screen and fixed responsive resize issue.
 
+- [X] Added apple style toggle switch for audio, using v-model, credits to the original CSS solution here https://dev.to/urielbitton/how-to-design-an-ios-style-switch-4maj - which I've now adpoted into Vue.
+.
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)

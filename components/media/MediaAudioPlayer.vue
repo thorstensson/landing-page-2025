@@ -23,6 +23,9 @@ const trackIndex = ref<number>(0)
 const currentTrack = ref<string>("")
 const isPlaying = ref<boolean>(false)
 
+const checked = ref<boolean>(false)
+const title = ref<string>("Sound")
+
 const PATH = useRuntimeConfig().public.s3Path
 
 
@@ -52,6 +55,7 @@ const currTrack = computed(() => {
 
 const togglePlay = () => {
     isPlaying.value = !isPlaying.value
+    console.log("HERE", isPlaying.value)
     if (isPlaying.value && audioEl.value) {
         playTrack()
     } else if (audioEl.value) {
@@ -130,13 +134,22 @@ const onTrackEnded = () => {
         audioEl.value.pause()
         audioEl.value.currentTime = 0
         currentTrack.value = currTrack.value
+        // we have played 'all' three tracks, set model value false checkbox will update
+        checked.value = false;
     }
 }
+
+// Watch our v-model for update of checked ref
+watch(() => checked.value, (newValue, oldValue) => {
+    togglePlay();
+})
+
 onMounted(() => {
     const { addElem } = useStoreRef()
     addElem("audioEl", audioEl)
     currentTrack.value = currTrack.value
 })
+
 </script>
 
 <template>
@@ -145,13 +158,7 @@ onMounted(() => {
             v-on:durationchange="durationUpdate" v-on:ended="onTrackEnded" ref="audio-element"
             crossorigin="anonymous"></audio>
         <div class="controls">
-            <ChevronLeftIcon @click="prevTrack" class="controls__prev" :class="{ 'controls__prev--end': !ifTrackPrev }">
-            </ChevronLeftIcon>
-            <ChevronRightIcon @click="nextTrack" class="controls__next"
-                :class="{ 'controls__next--end': !ifTrackNext }">
-            </ChevronRightIcon>
-            <PlayIcon @click="togglePlay" class="controls__play" :class="{ 'controls__play--show': !isPlaying }" />
-            <PauseIcon @click="togglePlay" class="controls__pause" :class="{ 'controls__pause--show': isPlaying }" />
+            <UIAppleSwitch v-model="checked" :title />
         </div>
         <div v-if="audioEl">
             <MediaAudioVisualizer ref="spectrum" />
@@ -172,14 +179,13 @@ body {
     -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
-    text-transform: uppercase;
 }
 
 .player-wrapper * {
+    font-family: "Lexend", "Lexend Fallback: Arial", sans-serif;
+    color: #FAF8FF;
     font-display: fallback;
-    font-family: $sans-ui;
-    font-size: 12px;
-    font-weight: 250;
+    font-size: 15px;
 }
 
 .controls {
@@ -189,46 +195,5 @@ body {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
-    &__play,
-    &__pause {
-        display: none;
-        width: 24px;
-        height: auto;
-        color: $shade1;
-        cursor: pointer;
-        transition: color .3s ease-in-out;
-
-        &--show {
-            display: block;
-        }
-    }
-
-    &__play:hover,
-    &__pause:hover {
-        color: $accent;
-    }
-
-    &__prev,
-    &__next {
-        width: 21px;
-        height: auto;
-        color: $shade1;
-        cursor: pointer;
-        transition: color .3s ease-in-out;
-
-        &--end {
-            opacity: 0.5;
-        }
-    }
-
-    &__next {
-        right: 20px;
-    }
-
-    &__next:hover,
-    &__prev:focus {
-        color: $accent;
-    }
 }
 </style>

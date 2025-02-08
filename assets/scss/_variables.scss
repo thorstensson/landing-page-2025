@@ -1,10 +1,14 @@
-// Colors, created with ColorSpace, now settled 
+// All colors, created with ColorSpace, input is black
+
 $primary: #0F0F0f; // bg iss obsidian black
 $secondary: #FAF8FF; // font
-$accent:#65fbd2;
 
-//random shades
-$shade1:#d2d2d2;
+// The accents are from Discrete palette based on obsidian
+$accent1:#d3fbd8;
+$accent2:#8685ef;
+
+// Except this one it is from shades based on obsidian
+$accent3:#c9c9c9;
 
 // Fonts
 $sans-ui: "Lexend", sans-serif;
