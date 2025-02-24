@@ -13,6 +13,7 @@
 <style scoped>
 .landing-wrapper {
   height: 100vh;
+  overflow-y: hidden;
 }
 
 </style>

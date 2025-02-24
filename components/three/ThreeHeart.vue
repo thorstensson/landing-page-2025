@@ -12,7 +12,7 @@ const extrudeSettings = {
     steps: 2,
     bevelSize: 1,
     bevelThickness: 1
-};
+}
 
 let camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer, scene: THREE.Scene, mesh: THREE.Mesh
 
@@ -35,9 +35,9 @@ onMounted(() => {
 
     scene = new THREE.Scene()
 
-    const heartShape = new THREE.Shape();
+    const heartShape = new THREE.Shape()
 
-    heartShape.moveTo(25, 25);
+    heartShape.moveTo(25, 25)
     heartShape.bezierCurveTo(25, 25, 20, 0, 0, 0)
     heartShape.bezierCurveTo(- 30, 0, - 30, 35, - 30, 35)
     heartShape.bezierCurveTo(- 30, 55, - 10, 77, 25, 95)

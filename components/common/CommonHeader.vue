@@ -3,7 +3,7 @@ import LogoSvg from '@/assets/svg/tt-logo.svg'
 </script>
 
 <template>
-  <div class="absolute-wrapper">
+  <div class="header-wrapper">
     <div class="header">
       <LogoSvg class="header__logo" />
       <div class="header__msg">New portfolio coming soon.</div>
@@ -21,7 +21,7 @@ import LogoSvg from '@/assets/svg/tt-logo.svg'
   text-decoration: none;
 }
 
-.absolute-wrapper {
+.header-wrapper {
   position: absolute;
   width: 100%;
 }

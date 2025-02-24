@@ -7,7 +7,7 @@ defineProps<{ title: string }>()
 
 const togglePlay = () => {
     isPlaying.value = !isPlaying.value
-    model.value = isPlaying.value;
+    model.value = isPlaying.value
 }
 </script>
 
@@ -23,13 +23,18 @@ const togglePlay = () => {
 
     &__on,
     &__off {
-        fill:$accent3;
+        fill: $accent2;
         position: absolute;
         width: 24px;
         height: auto;
-        padding-bottom:5px;
+        padding-bottom: 5px;
         display: none;
-        
+        transition: fill 1s;
+
+        &:hover {
+            fill:$accent3;
+        }
+
         cursor: pointer;
 
         &--show {

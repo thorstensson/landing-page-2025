@@ -99,6 +99,6 @@ onMounted(() => {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    right: 48px;
+    right: 52px;
 }
 </style>

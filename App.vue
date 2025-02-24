@@ -26,13 +26,13 @@ html,
 body {
     background-color: #1D1616;
     overflow-x: hidden;
+    overflow-y:hidden;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
     -o-font-smoothing: antialiased;
 }
 
 body {
-    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
