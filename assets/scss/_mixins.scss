@@ -1,4 +1,5 @@
 @use "variables";
+@use "sass:map";
 
 @mixin blend-mode-difference {
     mix-blend-mode: difference;
@@ -16,9 +17,9 @@ $breakpoints: (
 
 // Mixin to manage responsive breakpoints
 @mixin this-and-above($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
+    @if map.has-key($breakpoints, $breakpoint) {
         // Prints a media query based on the value
-        @media (min-width: map-get($breakpoints, $breakpoint)) {
+        @media (min-width: map.get($breakpoints, $breakpoint)) {
             @content;
         }
     } @else {

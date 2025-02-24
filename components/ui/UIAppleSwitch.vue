@@ -8,7 +8,8 @@ defineProps<{ title: string }>()
 <template>
     <div>
         <label class="ios-switch">
-            <div class="title">{{ title }}</div><input type="checkbox" v-model="model">
+            <div class="ios-switch__title">{{ title }}</div>
+            <input type="checkbox" v-model="model">
             <i></i>
         </label>
     </div>
@@ -16,14 +17,14 @@ defineProps<{ title: string }>()
 
 <style lang="scss" scoped>
 /*
-Credit to https://dev.to/urielbitton/how-to-design-an-ios-style-switch-4maj
-Here's my vue Adaptation
+Adapted by me to Vue & Credit to the CSS creator @
+https://dev.to/urielbitton/how-to-design-an-ios-style-switch-4maj
 */
 .ios-switch {
     display: inline-block;
     cursor: pointer;
 
-    .title {
+    &__title {
         margin-right: 5px;
         display: inline-block;
         vertical-align: middle;
@@ -88,6 +89,5 @@ Here's my vue Adaptation
     input:checked+i::after {
         transform: translate3d(22px, 1px, 0);
     }
-
 }
 </style>

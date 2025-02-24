@@ -27,7 +27,7 @@
     height: calc(100% + 20rem);
     z-index: 9999;
     position: fixed;
-    background-image: url('/assets/img/noise.png');
+    background-image: url('/assets/png/noise.png');
     opacity: 0.15;
     pointer-events: none;
     -webkit-animation: noise 1s steps(2) infinite;

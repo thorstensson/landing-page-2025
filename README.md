@@ -2,11 +2,9 @@
 
 # Landing Page Nuxt
 
-New landing page for my new netlify domain, [thomasjt.com](https://www.thomasjt.com)! The previous landing page, also here on my GitHub, needed a remake. No contact form on this one!
+Nuxt landing page for my new netlify domain, [thomasjt.com](https://www.thomasjt.com). The previous landing page, also here on my GitHub, needed a remake. No contact form on this one.
 
-The Three.js part of this landing page, is based on the post processing example on [ThreeJS](https://threejs.org/examples/), and adapted to work with Vue / Nuxt. However, some differences in terms of mesh used, etc. More ThreeJS later on
-
-Back to my portfolio work :penguin:
+Back to my portfolio work. I will be back :penguin:
 
 ## Setup
 

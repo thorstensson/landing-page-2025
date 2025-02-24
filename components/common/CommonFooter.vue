@@ -60,7 +60,7 @@
   user-select: none;
   font-display: fallback;
   font-family: $sans-ui;
-  color: #FAF8FF;
+  color: $secondary;
   font-display: fallback;
   font-size: 15px;
 }

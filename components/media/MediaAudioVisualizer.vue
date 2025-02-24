@@ -53,9 +53,9 @@ const startAnimRequest = () => {
             analyser.value?.getByteFrequencyData(dataArray)
             for (let i = 0; i < bufferLength; i++) {
                 const barHeight = dataArray[i]
-                ctx.fillStyle = `rgb(${barHeight + 255} 85 255)`
+                ctx.fillStyle = `rgb(${barHeight + 72} 30 20)`
                 ctx.fillRect(x, canvas.value.height - barHeight, barWidth, barHeight)
-                x += barWidth + 1
+                x += barWidth +2
             }
         }
         myReq = requestAnimationFrame(draw)
@@ -92,13 +92,13 @@ onMounted(() => {
 
 <style scoped lang="scss">
 #canvas {
-    bottom: 26px;
+    bottom: 28px;
     position: absolute;
     width: 100px;
     height: 25px;
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-    right: 105px;
+    right: 48px;
 }
 </style>

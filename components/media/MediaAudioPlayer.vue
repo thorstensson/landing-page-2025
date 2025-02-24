@@ -158,7 +158,7 @@ onMounted(() => {
             v-on:durationchange="durationUpdate" v-on:ended="onTrackEnded" ref="audio-element"
             crossorigin="anonymous"></audio>
         <div class="controls">
-            <UIAppleSwitch v-model="checked" :title />
+            <UIAudioToggle v-model="checked" :title />
         </div>
         <div v-if="audioEl">
             <MediaAudioVisualizer ref="spectrum" />

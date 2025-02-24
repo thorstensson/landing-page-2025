@@ -1,10 +1,12 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import LogoSvg from '@/assets/svg/tt-logo.svg'
+</script>
 
 <template>
-  <div class="abs-wrapper">
-    <div class="header-wrapper">
-      <div class="letter"><span>Thomas Thorstensson</span></div>
-      <div class="msg">New portfolio coming soon</div>
+  <div class="absolute-wrapper">
+    <div class="header">
+      <LogoSvg class="header__logo" />
+      <div class="header__msg">New portfolio coming soon.</div>
       <div class="hover">
         <span class="hover-fx cursor"><a>hello@thomasjt.com</a></span>
         <span aria-hidden="true" class="hover-fx"><a>hello@thomasjt.com</a></span>
@@ -14,18 +16,17 @@
 </template>
 
 <style lang="scss" scoped>
-// TODO: Tidy up this landing page CSS, but really neeed to deepdive now into my next portfolio
-
+// Hover class in global as it applies to both header and footer at moment
 .a {
   text-decoration: none;
 }
 
-.abs-wrapper {
+.absolute-wrapper {
   position: absolute;
   width: 100%;
 }
 
-.header-wrapper {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,31 +37,27 @@
   font-family: $sans-ui;
   color: $secondary;
   font-size: 15px;
+
+  &__logo {
+    width: 20px;
+    height: auto;
+    padding-bottom:6px;
+
+    @include this-and-above('lg') {
+      width: 30px;
+    }
+  }
+
+  &__msg {
+    display: none;
+
+    @include this-and-above('lg') {
+      display: block;
+    }
+  }
 }
 
 .cursor {
-  cursor:pointer;
-}
-
-.letter span::after {
-  content: "";
-  display: inline-block;
-  width: 4px;
-  height: 4px;
-  background-color: #fff;
-  border-radius: 50%;
-  margin: 0px 0 -1px 2px;
-}
-
-span {
-  display: inline-block;
-}
-
-.msg {
-  display: none;
-
-  @include this-and-above('lg') {
-    display: block;
-  }
+  cursor: pointer;
 }
 </style>

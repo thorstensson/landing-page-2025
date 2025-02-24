@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
   seo: {
     meta: {
-      description: 'Thomas Thorstensson is a multidisciplinary developer who loves crafting visual experiences..',
+      description: 'Thomas Thorstensson is a multidisciplinary developer who loves crafting visual experiences.',
     }
   },
 

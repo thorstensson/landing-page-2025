@@ -24,7 +24,7 @@ onMounted(() => {
 <style>
 html,
 body {
-    background-color: #0F0F0f;
+    background-color: #1D1616;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
