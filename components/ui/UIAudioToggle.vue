@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { SpeakerWaveIcon, SpeakerXMarkIcon } from '@heroicons/vue/24/solid'
-const isPlaying = ref<boolean>(false)
-const model = defineModel()
+
+const model = defineModel({default:false})
 
 defineProps<{ title: string }>()
 
 const togglePlay = () => {
-    isPlaying.value = !isPlaying.value
-    model.value = isPlaying.value
+    model.value = !model.value
 }
 </script>
 
 <template>
     <div class="controls">
-        <SpeakerWaveIcon @click="togglePlay" class="controls__on" :class="{ 'controls__on--show': isPlaying }" />
-        <SpeakerXMarkIcon @click="togglePlay" class="controls__off" :class="{ 'controls__off--show': !isPlaying }" />
+        <SpeakerWaveIcon @click="togglePlay" class="controls__on" :class="{ 'controls__on--show': model }" />
+        <SpeakerXMarkIcon @click="togglePlay" class="controls__off" :class="{ 'controls__off--show': !model }" />
     </div>
 </template>
 

@@ -23,7 +23,7 @@ const trackIndex = ref<number>(0)
 const currentTrack = ref<string>("")
 const isPlaying = ref<boolean>(false)
 
-const checked = ref<boolean>(false)
+const doPlay = ref<boolean>(false)
 const title = ref<string>("Sound")
 
 const PATH = useRuntimeConfig().public.s3Path
@@ -55,7 +55,6 @@ const currTrack = computed(() => {
 
 const togglePlay = () => {
     isPlaying.value = !isPlaying.value
-    console.log("HERE", isPlaying.value)
     if (isPlaying.value && audioEl.value) {
         playTrack()
     } else if (audioEl.value) {
@@ -135,12 +134,12 @@ const onTrackEnded = () => {
         audioEl.value.currentTime = 0
         currentTrack.value = currTrack.value
         // we have played 'all' three tracks, set model value false checkbox will update
-        checked.value = false;
+        doPlay.value = false;
     }
 }
 
 // Watch our v-model for update of checked ref
-watch(() => checked.value, (newValue, oldValue) => {
+watch(() => doPlay.value, (newValue, oldValue) => {
     togglePlay();
 })
 
@@ -158,7 +157,7 @@ onMounted(() => {
             v-on:durationchange="durationUpdate" v-on:ended="onTrackEnded" ref="audio-element"
             crossorigin="anonymous"></audio>
         <div class="controls">
-            <UIAudioToggle v-model="checked" :title />
+            <UIAudioToggle v-model="doPlay" :title />
         </div>
         <div v-if="audioEl">
             <MediaAudioVisualizer ref="spectrum" />
@@ -179,13 +178,6 @@ body {
     -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
-}
-
-.player-wrapper * {
-    font-family: "Lexend", "Lexend Fallback: Arial", sans-serif;
-    color: #FAF8FF;
-    font-display: fallback;
-    font-size: 15px;
 }
 
 .controls {

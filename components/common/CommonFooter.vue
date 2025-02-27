@@ -40,10 +40,8 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
-  font-display: fallback;
   font-family: $sans-ui;
   color: $secondary;
-  font-display: fallback;
   font-size: 15px;
 }
 

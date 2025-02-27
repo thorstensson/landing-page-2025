@@ -33,7 +33,6 @@ import LogoSvg from '@/assets/svg/tt-logo.svg'
   height: 70px;
   padding: 0 $page-hpad 0 $page-hpad;
   user-select: none;
-  font-display: fallback;
   font-family: $sans-ui;
   color: $secondary;
   font-size: 15px;
