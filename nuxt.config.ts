@@ -9,13 +9,13 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://thomasjt.com',
-    name: 'Thomas JT - Multidisciplinary Developer',
+    name: 'Thomas J Thorstensson / Frontend Dev.',
     // ...etc
   },
 
   seo: {
     meta: {
-      description: 'Thomas Thorstensson is a multidisciplinary developer who loves crafting visual experiences.',
+      description: 'Thomas Thorstensson is a multidisciplinary frontend developer who loves crafting visual experiences.',
     }
   },
 
@@ -26,7 +26,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxt/fonts', '@vueuse/nuxt', 'nuxt-svgo', '@nuxtjs/seo', 'nuxt-og-image', '@nuxtjs/robots', 'nuxt-seo-utils', 'nuxt-site-config',],
+  modules: ['@nuxt/fonts', '@vueuse/nuxt', 'nuxt-svgo', '@nuxtjs/seo', 'nuxt-og-image', '@nuxtjs/robots', 'nuxt-seo-utils', 'nuxt-site-config', '@nuxt/icon'],
 
   plugins: [
     { src: '@/plugins/gsap.client.ts', mode: 'client' }

@@ -8,15 +8,15 @@ import LogoSvg from '@/assets/svg/tt-logo.svg'
       <LogoSvg class="header__logo" />
       <div class="header__msg">New portfolio coming soon.</div>
       <div class="hover">
-        <span class="hover-fx cursor"><a>hello@thomasjt.com</a></span>
-        <span aria-hidden="true" class="hover-fx"><a>hello@thomasjt.com</a></span>
+        <span class="hover--fx cursor"><a>hello@thomasjt.com</a></span>
+        <span aria-hidden="true" class="hover--fx"><a>hello@thomasjt.com</a></span>
       </div>
     </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-// Hover class in global as it applies to both header and footer at moment
+// Hover class in global as it applies to both header and footer at moment, thus, no BEM for that
 .a {
   text-decoration: none;
 }

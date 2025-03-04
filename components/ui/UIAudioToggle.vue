@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { SpeakerWaveIcon, SpeakerXMarkIcon } from '@heroicons/vue/24/solid'
 
-const model = defineModel({default:false})
+const model = defineModel({ default: false })
 
 defineProps<{ title: string }>()
 
@@ -12,34 +12,31 @@ const togglePlay = () => {
 
 <template>
     <div class="controls">
-        <SpeakerWaveIcon @click="togglePlay" class="controls__on" :class="{ 'controls__on--show': model }" />
-        <SpeakerXMarkIcon @click="togglePlay" class="controls__off" :class="{ 'controls__off--show': !model }" />
+        <Icon name="mdi:speaker-play" mode="svg" size="38" @click="togglePlay" class="controls__on"
+            :class="{ 'controls__on--show': model }" />
+        <Icon name="mdi:speaker-stop" mode="svg" size="38" @click="togglePlay" class="controls__off"
+            :class="{ 'controls__off--show': !model }" />
     </div>
 </template>
 
 <style lang="scss" scoped>
 .controls {
-
     &__on,
     &__off {
-        fill: $accent2;
+        color: $secondary;
         position: absolute;
-        width: 24px;
-        height: auto;
-        padding-bottom: 5px;
+        padding-bottom: 8px;
         display: none;
-        transition: fill 1s;
+        transition: color .3s;
+        cursor: pointer;
 
         &:hover {
-            fill:$accent3;
+            color: $accent3;
         }
-
-        cursor: pointer;
 
         &--show {
             display: block
         }
     }
-
 }
-</style>
+</style> +

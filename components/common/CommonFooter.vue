@@ -3,20 +3,20 @@
     <div class="footer">
       <div>
         <div class="hover">
-          <span class="hover-fx"> <a target='_blank' href='https://github.com/thorstensson'>GitHub</a></span>
-          <span aria-hidden="true" class="hover-fx"> <a target='_blank'
+          <span class="hover--fx"> <a target='_blank' href='https://github.com/thorstensson'>GitHub</a></span>
+          <span aria-hidden="true" class="hover--fx"> <a target='_blank'
               href='https://github.com/thorstensson'>GitHub</a></span>
         </div>
         <span class="spacer"></span>
         <div class="hover">
-          <span class="hover-fx"> <a target='_blank'
+          <span class="hover--fx"> <a target='_blank'
               href='https://discord.com/users/1326292436187611199'>Discord</a></span>
-          <span aria-hidden="true" class="hover-fx"> <a target='_blank'
+          <span aria-hidden="true" class="hover--fx"> <a target='_blank'
               href='https://github.com/thorstensson'>Discord</a></span>
         </div>
         <span class="spacer"></span>
         <div class="hover">
-          <span class="strike nomusk">Twitter</span>
+          <span class="nomusk">Twitter</span>
         </div>
       </div>
       <MediaAudioPlayer />
@@ -45,15 +45,12 @@
   font-size: 15px;
 }
 
-.strike {
-  text-decoration: line-through;
-}
-
 .spacer {
   margin-right: 10px;
 }
 
 .nomusk {
+  text-decoration: line-through;
   display: none;
 
   @include this-and-above('lg') {

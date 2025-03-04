@@ -17,7 +17,7 @@
   pointer-events: none;
   z-index: 300;
   transform: translateZ(0);
-  overflow:hidden;
+  overflow: hidden;
 
   &:before {
     content: "";
@@ -32,7 +32,7 @@
     pointer-events: none;
     -webkit-animation: noise 1s steps(2) infinite;
     animation: noise 1s steps(2) infinite;
-    overflow:hidden;
+    overflow: hidden;
   }
 
   @-webkit-keyframes noise {
