@@ -5,7 +5,7 @@ definePageMeta({
 });
 
 const scrollConfig = reactive({
-    text: '                        Swedish <span class="outline">frontend</span> developer & photographer. <span class="outline">Multidisciplinary</span>. Sprinting towards reboot. <span class="outline"> Barcelona /</span> London. Job hunting > Get in touch...',
+    text: '                        Swedish <span class="outline">frontend</span> developer & photographer. <span class="outline">Multidisciplinary</span>. Sprinting towards reboot. Open to a new frontend role. Based: <span class="outline"> Barcelona /</span> London...',
 })
 
 // leaving this in here as I was thinking of switching components on a setTimeOut
