@@ -33,10 +33,11 @@ const PATH = useRuntimeConfig().public.s3Path
 const playlist = reactive([
 
     { artist: "Oneheart", track: "Øneheart, Antent, Dean Korso - silence is speaking.mp3" },
-
+    
     { artist: "Ashess", track: "ashess - she is the moment.mp3" },
 
-    { artist: "Shibíre", track: "shibíre - Hometown.mp3" },
+    { artist: "Shibíre", track: "shibíre - Hometown.mp3" }
+
 ])
 
 // Check for remaining tracks
@@ -128,12 +129,11 @@ const onTrackEnded = () => {
         trackIndex.value++
         playTrack()
     } else if (audioEl.value && spectrum.value) {
-        isPlaying.value = false
         trackIndex.value = 0
         audioEl.value.pause()
         audioEl.value.currentTime = 0
         currentTrack.value = currTrack.value
-        // we have played 'all' three tracks, set model value false checkbox will update
+        // we have played 'all' tracks set model value false
         doPlay.value = false;
     }
 }
