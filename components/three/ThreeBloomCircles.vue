@@ -31,8 +31,8 @@ const init = () => {
     let objWidth = parentEl.value!.clientWidth
 
     // renderer
-    renderer = new THREE.WebGLRenderer({ alpha: true, canvas: mycanvas.value as HTMLCanvasElement })
-    renderer.setClearColor(0x0F0F0F, 0)
+    renderer = new THREE.WebGLRenderer({ alpha: false, canvas: mycanvas.value as HTMLCanvasElement })
+    renderer.setClearColor(0x252422, 0)
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(objWidth, objHeight)
     renderer.setAnimationLoop(animate)
@@ -130,6 +130,6 @@ const animate = () => {
     /*it seems three calculates a few pixels off on some resizes so we force height gulp*/
     height: 100% !important;
     border: none;
-    background-color: #222;
+  
 }
 </style>

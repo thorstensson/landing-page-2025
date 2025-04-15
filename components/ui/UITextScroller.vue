@@ -117,8 +117,8 @@ onNuxtReady(() => {
 <template>
     <div class="wrapper">
         <div class="rail">
-            <h4 v-html="text"></h4>
-            <h4 v-html="text"></h4>
+            <h4>{{ text }}</h4>
+            <h4>{{ text }}</h4>
         </div>
     </div>
 </template>
@@ -142,22 +142,12 @@ onNuxtReady(() => {
         white-space: pre;
         line-height: 1em;
         margin: 0 2rem 0 0;
-
         font-family: $sans-text;
         color: $secondary;
         font-family: $sans-text;
         font-weight: 500;
         font-size: clamp-calc(480px, 1920px, 70px, 140px);
-
         will-change: transform;
-
-        :deep(.outline) {
-            color: $primary;
-
-            /* Text Shadow Property */
-            text-shadow: -1px -1px 0 $secondary, 1px -1px 0 $secondary, 1px 1px 0 $secondary,
-                1px 1px 0 $secondary;
-        }
     }
 }
 </style>

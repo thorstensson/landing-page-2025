@@ -21,10 +21,10 @@ onMounted(() => {
     </div>
 </template>
 
-<style>
+<style lang="scss">
 html,
 body {
-    background-color: #1D1616;
+    background-color: $primary ;
     overflow-x: hidden;
     overflow-y:hidden;
     -webkit-font-smoothing: antialiased;

@@ -22,7 +22,7 @@ onMounted(() => {
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, canvas: mycanvas.value as HTMLCanvasElement })
     renderer.xr.enabled = true
-    renderer.setClearColor(0x0C0C0C)
+    renderer.setClearColor(0xf4f3ee)
 
     renderer.toneMapping = THREE.ACESFilmicToneMapping
     renderer.toneMappingExposure = 100
@@ -48,7 +48,7 @@ onMounted(() => {
     const geometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings)
     geometry.center()
 
-    mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial({color:0xF2613F}) )
+    mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial({color:0x252422}) )
     mesh.name = 'heart'
     mesh.position.y = 30
     mesh.position.z = - 200

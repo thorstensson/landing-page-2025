@@ -51,7 +51,7 @@ https://dev.to/urielbitton/how-to-design-an-ios-style-switch-4maj
         left: 0;
         width: 15px;
         height: 15px;
-        background-color: $accent3;
+        background-color: $accent2;
         border-radius: 11px;
         transform: translate3d(2px, 1px, 0) scale3d(1, 1, 1);
         transition: all 0.3;
@@ -63,7 +63,7 @@ https://dev.to/urielbitton/how-to-design-an-ios-style-switch-4maj
         left: 0;
         width: 15px;
         height: 15px;
-        background-color: $accent3;
+        background-color: $accent2;
         border-radius: 11px;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0.24);
         transform: translate3d(2px, 1px, 0);
