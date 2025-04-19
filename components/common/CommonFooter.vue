@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 50px;
   padding: 0 20px 0 20px;
   -webkit-user-select: none;
   -moz-user-select: none;

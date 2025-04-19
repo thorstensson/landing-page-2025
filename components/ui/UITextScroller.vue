@@ -131,8 +131,8 @@ onNuxtReady(() => {
     width: 100%;
     height: fit-content;
     align-items: center;
-    bottom: 70px;
-    padding-bottom: 20px;
+    bottom: 75px;
+  
 }
 
 .rail {

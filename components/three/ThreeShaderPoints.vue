@@ -94,7 +94,10 @@ onMounted(() => {
     sphere = new THREE.Points(geometry, material)
     scene.add(sphere)
 
-    useCssVars
+    camera.aspect = parentEl.value!.clientWidth/parentEl.value!.clientHeight;
+    camera.updateProjectionMatrix()
+  
+
     renderer = new THREE.WebGLRenderer({ canvas: mycanvas.value as HTMLCanvasElement })
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(WIDTH, HEIGHT)

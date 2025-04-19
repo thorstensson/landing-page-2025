@@ -29,7 +29,7 @@ import LogoSvg from '@/assets/svg/tt-logo.svg'
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 70px;
+  height: 50px;
   padding: 0 $page-hpad 0 $page-hpad;
   user-select: none;
   font-family: $sans-ui;
