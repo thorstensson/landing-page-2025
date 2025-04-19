@@ -5,7 +5,6 @@ import LogoSvg from '@/assets/svg/tt-logo.svg'
 <template>
   <div class="header-wrapper">
     <div class="header">
-      <LogoSvg class="header__logo" />
       <div class="header__msg">New portfolio coming soon.</div>
       <div class="hover">
         <span class="hover--fx cursor"><a>hello@thomasjt.com</a></span>
@@ -36,6 +35,7 @@ import LogoSvg from '@/assets/svg/tt-logo.svg'
   font-family: $sans-ui;
   color: $secondary;
   font-size: 15px;
+  font-weight:500;
 
   &__logo {
     width: 20px;

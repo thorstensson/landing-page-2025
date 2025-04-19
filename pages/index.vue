@@ -5,11 +5,11 @@ definePageMeta({
 });
 
 const scrollConfig = reactive({
-    text: '                        Swedish multidisciplinary developer. Sprinting towards reboot. Current role: Freelancing Nuxt Developer @ Solume AI. Based: Barcelona / London. Open to a permanent calling, so do no hesitate to contact me!',
+    text: '                        Swedish multidisciplinary developer. Sprinting towards reboot. Freelancing Nuxt Developer @ Solume AI. Based: Barcelona / London. Looking for perm Vue role EU / Spain, open to talks ❤',
 })
 
 // leaving this in here as I was thinking of switching components on a setTimeOut
-const compName = shallowRef(resolveComponent('ThreeHeart'))
+const compName = shallowRef(resolveComponent('ThreeShaderPoints'))
 
 </script>
 

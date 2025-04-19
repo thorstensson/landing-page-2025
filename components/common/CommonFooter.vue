@@ -43,6 +43,7 @@
   font-family: $sans-ui;
   color: $secondary;
   font-size: 15px;
+  font-weight: 400;
 }
 
 .spacer {

@@ -1,18 +1,9 @@
 <script setup lang="ts">
 /**
  * An even more slimmed down version of the player.
- * TODO: when portfolio is done, revisit this for improvements
- * (should I use Audio class, load server side?)
  */
 
 import { ref, useTemplateRef, reactive, watch, onMounted, computed } from 'vue'
-import {
-    PlayIcon,
-    PauseIcon,
-    ChevronRightIcon,
-    ChevronLeftIcon,
-} from '@heroicons/vue/24/solid'
-
 import { useStoreRef } from '@/composable/useStoreRef'
 
 const spectrum = useTemplateRef('spectrum')
@@ -31,13 +22,10 @@ const PATH = useRuntimeConfig().public.s3Path
 
 //Add tracks here; no plans to make a DOM playlist
 const playlist = reactive([
-
-    { artist: "Lorn", track: "Lorn - Folding (Original Mix).mp3" },
-
-    { artist: "ashess", track: "ashess - only you (Original Mix).mp3" },
-
-    { artist: "Sky_s Memoirs", track: "Sky_s Memoirs - Nova (Original Mix).mp3" }
-
+    { artist: "Oscuro", track: "Oscuro - BlauDisS - Openness.mp3" },
+    { artist: "Unseen Elementz", track: "Unseen Elementz - Waiting (Future Garage).mp3" },
+    { artist: "Tomokari & PALMS HIGH", track: "Tomokari & PALMS HIGH - Rumours.mp3" },
+    { artist: "Progmalite", track: "Progmalite - Statica (Single).mp3" }
 ])
 
 // Check for remaining tracks

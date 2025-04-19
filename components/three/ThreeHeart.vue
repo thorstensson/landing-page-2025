@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useParentElement } from '@vueuse/core'
 import * as THREE from 'three'
+import { EffectComposer } from 'three/examples/jsm/Addons.js'
+import { RenderPass, ShaderPass, DotScreenShader } from 'three/examples/jsm/Addons.js'
 
 const mycanvas = useTemplateRef('canvas')
 const parentEl = useParentElement()
@@ -14,10 +16,10 @@ const extrudeSettings = {
     bevelThickness: 1
 }
 
-let camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer, scene: THREE.Scene, mesh: THREE.Mesh
+let camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer, scene: THREE.Scene, mesh: THREE.Mesh, composer: EffectComposer
 
 onMounted(() => {
-    let objHeight = parentEl.value!.clientHeight
+    let objHeight = parentEl.value!.clientWidth
     let objWidth = parentEl.value!.clientWidth
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false, canvas: mycanvas.value as HTMLCanvasElement })
@@ -25,7 +27,7 @@ onMounted(() => {
     renderer.setClearColor(0xf4f3ee)
 
     renderer.toneMapping = THREE.ACESFilmicToneMapping
-    renderer.toneMappingExposure = 100
+    renderer.toneMappingExposure = 150
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(objWidth, objHeight)
     renderer.setAnimationLoop(animate)
@@ -48,7 +50,7 @@ onMounted(() => {
     const geometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings)
     geometry.center()
 
-    mesh = new THREE.Mesh( geometry, new THREE.MeshPhongMaterial({color:0x252422}) )
+    mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0xeb5e28, metalness: 2 }))
     mesh.name = 'heart'
     mesh.position.y = 30
     mesh.position.z = - 200
@@ -57,6 +59,13 @@ onMounted(() => {
     const light = new THREE.DirectionalLight(0x222222, 3)
     light.position.set(1, 1, 1)
     scene.add(light)
+
+    composer = new EffectComposer(renderer);
+    composer.addPass(new RenderPass(scene, camera));
+
+    const effect1 = new ShaderPass(DotScreenShader);
+    effect1.uniforms['scale'].value = 4;
+    composer.addPass(effect1);
 
     window.addEventListener('resize', onWindowResize)
     window.addEventListener("deviceorientation", onWindowResize)
@@ -68,6 +77,7 @@ const onWindowResize = () => {
     camera.aspect = objWidth / objHeight
     camera.updateProjectionMatrix()
     renderer.setSize(objWidth, objHeight)
+    composer.setSize(objWidth, objHeight)
 }
 
 const animate = () => {
@@ -75,7 +85,8 @@ const animate = () => {
     const heart3d = scene.getObjectByName('heart')
     heart3d!.rotation.x = time * 0.4
     heart3d!.rotation.y = time
-    renderer.render(scene, camera)
+    renderer.render(scene, camera, composer)
+    //composer.render()
 }
 </script>
 

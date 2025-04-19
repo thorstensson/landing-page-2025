@@ -35,7 +35,7 @@ const createAnalyserData = () => {
     if (audioCtx.state === 'suspended') {
         audioCtx.resume()
     }
-    barWidth = 10
+    barWidth = 20
 }
 
 /**
@@ -53,9 +53,9 @@ const startAnimRequest = () => {
             analyser.value?.getByteFrequencyData(dataArray)
             for (let i = 0; i < bufferLength; i++) {
                 const barHeight = dataArray[i]
-                ctx.fillStyle = `rgb(${barHeight + 72} 30 20)`
+                ctx.fillStyle = `rgb(${  82} 109 130)`
                 ctx.fillRect(x, canvas.value.height - barHeight, barWidth, barHeight)
-                x += barWidth +2
+                x += barWidth +4
             }
         }
         myReq = requestAnimationFrame(draw)

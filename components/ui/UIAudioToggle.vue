@@ -38,7 +38,7 @@ const togglePlay = () => {
 
         @media (hover: hover) {
             &:hover {
-                color: $accent1;
+                color:$accent2;
             }
         }
     }
