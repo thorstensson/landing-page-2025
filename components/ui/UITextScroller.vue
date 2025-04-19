@@ -129,10 +129,8 @@ onNuxtReady(() => {
     display: flex;
     overflow: hidden;
     width: 100%;
-    height: fit-content;
     align-items: center;
-    bottom: 75px;
-  
+    bottom: 60px;
 }
 
 .rail {
@@ -148,6 +146,7 @@ onNuxtReady(() => {
         font-weight: 600;
         font-size: clamp-calc(480px, 1920px, 70px, 130px);
         will-change: transform;
+        padding-bottom:10px;
     }
 }
 </style>

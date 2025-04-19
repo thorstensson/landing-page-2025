@@ -14,6 +14,8 @@ const trackIndex = ref<number>(0)
 const currentTrack = ref<string>("")
 const isPlaying = ref<boolean>(false)
 
+const isMounted = ref<boolean>(false)
+
 const doPlay = ref<boolean>(false)
 const title = ref<string>("Sound")
 
@@ -25,7 +27,7 @@ const playlist = reactive([
     { artist: "Oscuro", track: "Oscuro - BlauDisS - Openness.mp3" },
     { artist: "Unseen Elementz", track: "Unseen Elementz - Waiting (Future Garage).mp3" },
     { artist: "Tomokari & PALMS HIGH", track: "Tomokari & PALMS HIGH - Rumours.mp3" },
-    { artist: "Progmalite", track: "Progmalite - Statica (Single).mp3" }
+    { artist: "Progmalite", track: "Progmalite - Statica - Single.mp3" }
 ])
 
 // Check for remaining tracks
@@ -135,15 +137,19 @@ onMounted(() => {
     const { addElem } = useStoreRef()
     addElem("audioEl", audioEl)
     currentTrack.value = currTrack.value
+    isMounted.value = true
+
 })
 
 </script>
 
 <template>
     <div class="player-wrapper">
+        <div v-if="isMounted">
         <audio type="audio/mp3" :src="`${PATH}/${currentTrack}`" preload="auto" v-on:timeupdate="timeUpdate"
             v-on:durationchange="durationUpdate" v-on:ended="onTrackEnded" ref="audio-element"
             crossorigin="anonymous"></audio>
+        </div>
         <div class="controls">
             <UIAudioToggle v-model="doPlay" :title />
         </div>
