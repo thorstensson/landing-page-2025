@@ -92,7 +92,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 #canvas {
-    bottom: 17px;
+    bottom: 24px;
     position: absolute;
     width: 150px;
     height: 25px;

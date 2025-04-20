@@ -143,8 +143,8 @@ onNuxtReady(() => {
         font-family: $sans-text;
         color: $secondary;
         font-family: $sans-text;
-        font-weight: 600;
-        font-size: clamp-calc(480px, 1920px, 70px, 130px);
+        font-weight: 500;
+        font-size: clamp-calc(480px, 1920px, 60px, 130px);
         will-change: transform;
         padding-bottom:10px;
     }

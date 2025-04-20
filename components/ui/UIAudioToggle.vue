@@ -27,6 +27,7 @@ const togglePlay = () => {
         color: $secondary;
         position: absolute;
         padding-bottom: 8px;
+        bottom:13px;
         display: none;
         transition: color .3s;
         cursor: pointer;

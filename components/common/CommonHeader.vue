@@ -1,11 +1,14 @@
 <script setup lang="ts">
-import LogoSvg from '@/assets/svg/tt-logo.svg'
+import LogoSvg from '@/assets/svg/logo.svg'
 </script>
 
+<!-- Icon by Vasily Gedzun UA -->
+ 
 <template>
   <div class="header-wrapper">
     <div class="header">
-      <div class="header__msg">New portfolio coming soon.</div>
+      <LogoSvg class="header__logo" />
+      <div class="header__msg">New folio coming.</div>
       <div class="hover">
         <span class="hover--fx cursor"><a>hello@thomasjt.com</a></span>
         <span aria-hidden="true" class="hover--fx"><a>hello@thomasjt.com</a></span>
@@ -34,16 +37,19 @@ import LogoSvg from '@/assets/svg/tt-logo.svg'
   user-select: none;
   font-family: $sans-ui;
   color: $secondary;
-  font-size: 15px;
-  font-weight:500;
+  font-size: 14px;
+  font-weight:400;
+
 
   &__logo {
     width: 20px;
     height: auto;
-    padding-bottom:6px;
+    margin-bottom:2px;
+ 
 
     @include this-and-above('lg') {
-      width: 30px;
+      width: 20px;
+      height:auto;
     }
   }
 

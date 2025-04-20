@@ -13,13 +13,18 @@ const trackDuration = ref<string>("00.00")
 const trackIndex = ref<number>(0)
 const currentTrack = ref<string>("")
 const isPlaying = ref<boolean>(false)
-
+const panelTrack = useTemplateRef('panel-track')
 const isMounted = ref<boolean>(false)
 
 const doPlay = ref<boolean>(false)
 const title = ref<string>("Sound")
 
+// The panel width, if track text wider then GSAP yoyo
+const TRACK_WIDTH = 145
+
 const PATH = useRuntimeConfig().public.s3Path
+const { $gsap } = useNuxtApp()
+
 
 
 //Add tracks here; no plans to make a DOM playlist
@@ -133,6 +138,22 @@ watch(() => doPlay.value, (newValue, oldValue) => {
     togglePlay();
 })
 
+// GSAP, yoyo text left to right if title wider than display
+watch(
+    [isPlaying, trackIndex],
+    () => {
+        const { width } = panelTrack.value?.getBoundingClientRect() || {}
+        if (isPlaying.value && (width && width > TRACK_WIDTH)) {
+            const remWidth = width - TRACK_WIDTH + 10
+            $gsap.fromTo(".panel__box__track", { x: 0 }, {
+                duration: width / 100, x: -remWidth, repeat: -1, yoyo: true, ease: "sine.inOut"
+            })
+        } else {
+            $gsap.to(".panel__box__track", { x: 0, duration: 1, ease: "sine.inOut", overwrite: 'auto' })
+        }
+    }, { flush: 'post' }
+)
+
 onMounted(() => {
     const { addElem } = useStoreRef()
     addElem("audioEl", audioEl)
@@ -146,9 +167,15 @@ onMounted(() => {
 <template>
     <div class="player-wrapper">
         <div v-if="isMounted">
-        <audio type="audio/mp3" :src="`${PATH}/${currentTrack}`" preload="auto" v-on:timeupdate="timeUpdate"
-            v-on:durationchange="durationUpdate" v-on:ended="onTrackEnded" ref="audio-element"
-            crossorigin="anonymous"></audio>
+            <audio type="audio/mp3" :src="`${PATH}/${currentTrack}`" preload="auto" v-on:timeupdate="timeUpdate"
+                v-on:durationchange="durationUpdate" v-on:ended="onTrackEnded" ref="audio-element"
+                crossorigin="anonymous"></audio>
+        </div>
+        <div class="panel">
+            <div class="panel__box">
+                <div :class="{ 'panel__box__track--paused': !isPlaying }" class="panel__box__track" ref="panel-track">{{
+                    currentTrack }}</div>
+            </div>
         </div>
         <div class="controls">
             <UIAudioToggle v-model="doPlay" :title />
@@ -160,18 +187,46 @@ onMounted(() => {
 </template>
 
 <style lang="scss" scoped>
-body {
+.player-wrapper {
+    width: 240px;
+    height: 50px;
     -webkit-overflow-scrolling: none;
     overflow: hidden;
     overscroll-behavior: none;
 }
 
-.player-wrapper {
-    width: 240px;
-    height: 70px;
-    -webkit-overflow-scrolling: none;
-    overflow: hidden;
-    overscroll-behavior: none;
+.panel {
+    position: relative;
+    width: -moz-fit-content;
+    width: fit-content;
+    color: $accent2;
+    border-radius: 25px;
+    top: 26px;
+    right: -57px;
+
+    &__box {
+        position: relative;
+        width: 145px;
+        border-radius: 4px;
+        padding: 0 5px 0 5px;
+        overflow: hidden;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+
+        &__track {
+            white-space: nowrap;
+            text-align: center;
+            width: -moz-fit-content;
+            width: fit-content;
+            font-family: 'Lexend';
+            font-size: 10px;
+        }
+
+        &__track--paused {
+            display:none;
+        }
+    }
 }
 
 .controls {

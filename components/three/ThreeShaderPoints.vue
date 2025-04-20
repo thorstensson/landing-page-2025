@@ -40,40 +40,40 @@ uniform vec3 color;
 onMounted(() => {
     WIDTH = parentEl.value!.clientWidth
     HEIGHT = parentEl.value!.clientWidth
-    camera = new THREE.PerspectiveCamera(55, WIDTH / HEIGHT, 1, 10000);
-    camera.position.z = 300;
-    camera.position.y = -20
+    camera = new THREE.PerspectiveCamera(55, WIDTH / HEIGHT, 1, 10000)
+    camera.position.z = 280
+    camera.position.y = -18
 
-    scene = new THREE.Scene();
+    scene = new THREE.Scene()
 
-    const radius = 100, segments = 68, rings = 38;
+    const radius = 100, segments = 68, rings = 38
 
-    let sphereGeometry = new THREE.SphereGeometry(radius, segments, rings) as THREE.BufferGeometry;
+    let sphereGeometry = new THREE.SphereGeometry(radius, segments, rings) as THREE.BufferGeometry
 
     // if normal and uv attributes are not removed, mergeVertices() can't consolidate identical vertices with different normal/uv data
-    sphereGeometry.deleteAttribute('normal');
-    sphereGeometry.deleteAttribute('uv');
+    sphereGeometry.deleteAttribute('normal')
+    sphereGeometry.deleteAttribute('uv')
 
     sphereGeometry = BufferGeometryUtils.mergeVertices(sphereGeometry)
 
-    const positionAttribute = sphereGeometry.getAttribute('position');
+    const positionAttribute = sphereGeometry.getAttribute('position')
 
-    const colors = [];
-    const sizes = [];
+    const colors = []
+    const sizes = []
 
-    const color = new THREE.Color();
-    const vertex = new THREE.Vector3();
+    const color = new THREE.Color()
+    const vertex = new THREE.Vector3()
 
-    length1 = sphereGeometry.getAttribute('position').count;
+    length1 = sphereGeometry.getAttribute('position').count
 
     for (let i = 0, l = positionAttribute.count; i < l; i++) {
-        vertex.fromBufferAttribute(positionAttribute, i);
-        color.toArray(colors, i * 3);
+        vertex.fromBufferAttribute(positionAttribute, i)
+        color.toArray(colors, i * 3)
         sizes[i] = i < length1 ? 10 : 40
     }
 
     const geometry = new THREE.BufferGeometry()
-    geometry.setAttribute('position', positionAttribute);
+    geometry.setAttribute('position', positionAttribute)
     geometry.setAttribute('size', new THREE.Float32BufferAttribute(sizes, 1))
     geometry.setAttribute('ca', new THREE.Float32BufferAttribute(colors, 3))
 
@@ -83,7 +83,7 @@ onMounted(() => {
 
     const material = new THREE.ShaderMaterial({
         uniforms: {
-            color: { value: new THREE.Color(0x9DB2BF) },
+            color: { value: new THREE.Color(0x5E96D6) },
             pointTexture: { value: texture }
         },
         vertexShader,
@@ -94,14 +94,14 @@ onMounted(() => {
     sphere = new THREE.Points(geometry, material)
     scene.add(sphere)
 
-    camera.aspect = parentEl.value!.clientWidth/parentEl.value!.clientHeight;
+    camera.aspect = parentEl.value!.clientWidth/parentEl.value!.clientHeight
     camera.updateProjectionMatrix()
   
 
-    renderer = new THREE.WebGLRenderer({ canvas: mycanvas.value as HTMLCanvasElement })
+    renderer = new THREE.WebGLRenderer({ canvas: mycanvas.value as HTMLCanvasElement, alpha:true })
     renderer.setPixelRatio(window.devicePixelRatio)
     renderer.setSize(WIDTH, HEIGHT)
-    renderer.setClearColor(0x222831)
+  
     renderer.setAnimationLoop(animate)
 
     stats = new Stats()
@@ -122,7 +122,7 @@ const sortPoints = () => {
     const vector = new THREE.Vector3()
     // Model View Projection matrix
     const matrix = new THREE.Matrix4()
-    matrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse);
+    matrix.multiplyMatrices(camera.projectionMatrix, camera.matrixWorldInverse)
     matrix.multiply(sphere.matrixWorld)
 
     const geometry = sphere.geometry
@@ -140,7 +140,7 @@ const sortPoints = () => {
         geometry.setIndex(index)
     }
 
-    const sortArray = [];
+    const sortArray = []
 
     for (let i = 0; i < length; i++) {
         vector.fromArray(positions, i * 3)
@@ -149,7 +149,7 @@ const sortPoints = () => {
     }
 
     function numericalSort(a, b) {
-        return b[0] - a[0];
+        return b[0] - a[0]
     }
 
     sortArray.sort(numericalSort)
@@ -177,7 +177,7 @@ const animate = () => {
     }
 
     attributes.size.needsUpdate = true
-    sortPoints();
+    sortPoints()
     renderer.render(scene, camera)
 }
 </script>
