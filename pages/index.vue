@@ -28,11 +28,11 @@ const scrollConfig = reactive({
           mp3visualizer.thomasthorstensson.com
         </a>
         <a
-          href="https://palestine-aware.thomasthorstensson.com"
+          href="https://palestine-awareness.thomasthorstensson.com"
           target="_blank"
           class="launch__link"
         >
-          palestine-aware.thomasthorstensson.com
+          palestine-awareness.thomasthorstensson.com
         </a>
       </div>
     </div>
