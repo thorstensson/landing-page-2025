@@ -1,14 +1,14 @@
 ![Static Badge](https://img.shields.io/badge/Nuxt3-green)
 
-# Landing Page Nuxt
+# Landing Page For Folio Coming Oct 12th 2025
 
-Nuxt landing page for my new netlify domain, [thomasjt.com](https://www.thomasjt.com). The previous landing page, also here on my GitHub, needed a remake. No contact form on this one.
+Landing page. New folio launch date is set to **Oct 12th 2025**. Note that my folio is coming at **thomasthorstensson (dot) com** and **thomasjt (dot) com** will at that point turn into an alias repointing to this my new Netlify domain.
 
-Back to my portfolio work. I will be back :penguin:
+ :penguin: T.
 
 ## Setup
 
-Make sure to install dependencies:
+Make sure to install dependencies.
 
 ```bash
 # npm
