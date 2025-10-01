@@ -3,21 +3,16 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
 
-  devServer: {
-    host: '0.0.0.0',
-    port: 3000
-},
+  fonts: {
+    families: [
+      { name: 'Sora', provider: 'google' },
+      { name: 'Geist', provider: 'google' }
+    ],
 
-  site: {
-    url: 'https://thomasjt.com',
-    name: 'Thomas J Thorstensson / Frontend Dev.',
-    // ...etc
-  },
-
-  seo: {
-    meta: {
-      description: 'Thomas Thorstensson is a multidisciplinary frontend developer who loves crafting visual experiences.',
-    }
+    defaults: {
+      weights: [400, 500, 600, 700],
+      styles: ['normal', 'italic'],
+    },
   },
 
   runtimeConfig: {
@@ -27,7 +22,7 @@ export default defineNuxtConfig({
     }
   },
 
-  modules: ['@nuxt/fonts', '@vueuse/nuxt', 'nuxt-svgo', '@nuxtjs/seo', 'nuxt-og-image', '@nuxtjs/robots', 'nuxt-seo-utils', 'nuxt-site-config', '@nuxt/icon'],
+  modules: ['@nuxt/fonts', '@vueuse/nuxt', 'nuxt-svgo', '@nuxt/icon'],
 
   plugins: [
     { src: '@/plugins/gsap.client.ts', mode: 'client' }
@@ -45,10 +40,6 @@ export default defineNuxtConfig({
     },
   },
 
-  robots: {
-    blockNonSeoBots: true
-  },
-
   vite: {
     css: {
       preprocessorOptions: {
@@ -57,10 +48,6 @@ export default defineNuxtConfig({
         },
       },
     },
-  },
-
-  fonts: {
-    provider: 'google'
   },
 
   svgo: {

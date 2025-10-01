@@ -1,62 +1,38 @@
+<script setup lang="ts">
+import CommonFooterLayout from "./CommonFooterLayout.vue"
+</script>
+
 <template>
   <div class="footer-wrapper">
-    <div class="footer">
-      <div>
-        <div class="hover">
-          <span class="hover--fx"> <a target='_blank' href='https://github.com/thorstensson'>GitHub</a></span>
-          <span aria-hidden="true" class="hover--fx"> <a target='_blank'
-              href='https://github.com/thorstensson'>GitHub</a></span>
-        </div>
-        <span class="spacer"></span>
-        <div class="hover">
-          <span class="hover--fx"> <a target='_blank'
-              href='https://discord.com/users/1326292436187611199'>Discord</a></span>
-          <span aria-hidden="true" class="hover--fx"> <a target='_blank'
-              href='https://github.com/thorstensson'>Discord</a></span>
-        </div>
-        <span class="spacer"></span>
-        <div class="hover">
-          <span class="nomusk">Twitter</span>
-        </div>
-      </div>
-      <MediaAudioPlayer />
-    </div>
+    <CommonFooterLayout>
+      <template #info>Landing.</template>
+      <template #link
+        ><a href="https://github.com/thorstensson" target="_blank"
+          >GitHub</a
+        ></template
+      >
+    </CommonFooterLayout>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.footer-wrapper {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
+a {
+  text-decoration: underline;
 }
-
-.footer {
+.footer-wrapper {
+  background:$accent3;
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 50px;
-  padding: 0 20px 0 20px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  font-family: $sans-ui;
-  color: $secondary;
-  font-size: 14px;
-  font-weight: 400;
+  padding: 0 32px;
+  flex-shrink: 0; /* Prevent footer from shrinking */
 
-}
-
-.spacer {
-  margin-right: 10px;
-}
-
-.nomusk {
-  text-decoration: line-through;
-  display: none;
-
-  @include this-and-above('lg') {
-    display: block;
+  // Ensure footer is always visible on mobile
+  @media (max-width: 768px) {
+    position: relative;
+    z-index: 100;
+    background-color: $primary;
   }
 }
 </style>

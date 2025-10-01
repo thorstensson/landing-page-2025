@@ -2,7 +2,6 @@
 
 <template>
   <div>
-    <CommonHeader />
     <div class="landing-wrapper">
       <slot />
     </div>
@@ -10,10 +9,12 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .landing-wrapper {
-  height: 100vh;
+  display:flex;
+  background:$primary;
+  min-height: calc(100vh - 50px);
+  min-height: calc(100dvh - 50px);
   overflow-y: hidden;
 }
-
 </style>
