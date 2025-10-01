@@ -16,7 +16,7 @@ const scrollConfig = reactive({
   <div class="page-wrapper">
     <div class="launch">
       <h1 class="launch__heading">
-        Launch Oct 12 2025 @ www.thomas.thorstensson.com
+        Launch Oct 12 2025 @ www.thomasthorstensson.com
       </h1>
       <p class="launch__subtext">Meanwhile Visit</p>
       <div class="launch__links">
