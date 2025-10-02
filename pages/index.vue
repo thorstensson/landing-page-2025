@@ -8,7 +8,7 @@ useHead({
 })
 
 const scrollConfig = reactive({
-  text: "                        Folio launch October 12th 2025 @ www.thomasthorstensson.com (nothing there yet). Thanks.",
+  text: "                        New Folio coming October 12th 2025 @ www.thomasthorstensson.com (nothing there yet). Thanks.",
 })
 </script>
 
@@ -16,7 +16,7 @@ const scrollConfig = reactive({
   <div class="page-wrapper">
     <div class="launch">
       <h1 class="launch__heading">
-        Launch Oct 12 2025 @ www.thomasthorstensson.com
+        New Folio: Oct 12 2025<br/>@ www.thomasthorstensson.com
       </h1>
       <p class="launch__subtext">Meanwhile Visit</p>
       <div class="launch__links">
@@ -41,7 +41,6 @@ const scrollConfig = reactive({
 </template>
 
 <style lang="scss" scoped>
-@import "@/assets/scss/variables";
 
 .page-wrapper {
   display: flex;
@@ -60,7 +59,7 @@ const scrollConfig = reactive({
 
   &__heading {
     font-family: $sans-text;
-    color: $accent2;
+    color: $secondary;
     font-size: 1.5rem;
     font-weight: $sans-text-wgt;
     margin-bottom: 1rem;
@@ -69,7 +68,7 @@ const scrollConfig = reactive({
 
   &__subtext {
     font-family: $sans-text;
-    color: $accent2;
+    color: $secondary;
     font-size: 1.2rem;
     font-weight: $sans-text-wgt;
     margin-bottom: 1.5rem;
@@ -84,14 +83,14 @@ const scrollConfig = reactive({
 
   &__link {
     font-family: $sans-text;
-    color: $accent2;
+    color: $secondary;
     font-size: 1rem;
     font-weight: $sans-text-wgt;
     text-decoration: none;
-    transition: opacity 0.3s ease;
+    transition: color 0.3s ease;
 
     &:hover {
-      opacity: 0.7;
+      color:$accent1;
     }
   }
 }

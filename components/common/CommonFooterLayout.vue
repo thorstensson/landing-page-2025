@@ -17,7 +17,8 @@ const slots = useSlots()
   width: 100%;
   display: flex;
   justify-content: space-between;
-  font-family: $sans-text;
+  font-family: $sans-ui;
+  font-weight: 600;
   font-size: clamp-calc(480px, 1920px, 12px, 14px);
   color: $accent2;
   user-select: none;

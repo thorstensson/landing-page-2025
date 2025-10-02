@@ -20,7 +20,7 @@ a {
   text-decoration: underline;
 }
 .footer-wrapper {
-  background:$accent3;
+  background:$primary;
   display: flex;
   align-items: center;
   justify-content: space-between;
