@@ -21,11 +21,11 @@ const scrollConfig = reactive({
       <p class="launch__subtext">Meanwhile Visit</p>
       <div class="launch__links">
         <a
-          href="https://mp3visualizer.thomasthorstensson.com"
+          href="https://mp3playerp5.thomasthorstensson.com"
           target="_blank"
           class="launch__link"
         >
-          mp3visualizer.thomasthorstensson.com
+          mp3playerp5.thomasthorstensson.com
         </a>
         <a
           href="https://palestine-awareness.thomasthorstensson.com"
