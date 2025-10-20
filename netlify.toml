@@ -1,26 +1,20 @@
 # Netlify configuration for domain redirect
-# Redirects all traffic from www.thomasjt.com to www.thomasthorstenson.com
-
-[[redirects]]
-  from = "https://www.thomasjt.com/*"
-  to = "https://www.thomasthorstenson.com/:splat"
-  status = 301
-  force = true
-
-[[redirects]]
-  from = "http://www.thomasjt.com/*"
-  to = "https://www.thomasthorstenson.com/:splat"
-  status = 301
-  force = true
+# Redirects all traffic from thomasjt.com to thomasthorstenson.com
 
 [[redirects]]
   from = "https://thomasjt.com/*"
-  to = "https://www.thomasthorstenson.com/:splat"
+  to = "https://thomasthorstenson.com/:splat"
   status = 301
   force = true
 
 [[redirects]]
-  from = "http://thomasjt.com/*"
-  to = "https://www.thomasthorstenson.com/:splat"
+  from = "https://www.thomasjt.com/*"
+  to = "https://thomasthorstenson.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://thomasjt.netlify.app/*"
+  to = "https://thomasthorstenson.com/:splat"
   status = 301
   force = true
